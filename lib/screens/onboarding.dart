@@ -141,9 +141,15 @@ class OnboardingPageState extends State<OnboardingPage> {
                         if (_currentPage == widget.pages.length - 1) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                const HomeScreen()),
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => const HomeScreen(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                            ),
                           );
                         } else {
                           _pageController.animateToPage(_currentPage + 1,

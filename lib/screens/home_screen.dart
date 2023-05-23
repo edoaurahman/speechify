@@ -4,6 +4,26 @@ import 'package:speechify/screens/petunjuk_penggunaan.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+  void navigateWithSlideAnimation(BuildContext context, Widget destination) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => destination,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     const cardFont = 12.0;
@@ -62,12 +82,7 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                     GestureDetector(
                       onTap: () {
                         // Aksi yang akan dijalankan saat card diklik
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const PetunjukPenggunaanScreen()),
-                        );
+                        navigateWithSlideAnimation(context, const PetunjukPenggunaanScreen());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
