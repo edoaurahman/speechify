@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:speechify/screens/home_screen.dart';
 import 'package:speechify/screens/onboarding.dart';
 import 'package:speechify/screens/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const YourApp());
-
 }
 
 class YourApp extends StatelessWidget {
