@@ -19,7 +19,7 @@ class YourApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Your App',
+      title: 'Speechify',
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
