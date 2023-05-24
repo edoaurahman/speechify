@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.speechify">
+    package="com.edoaurahman.speechify">
    <application
         android:label="speechify"
         android:name="${applicationName}"
