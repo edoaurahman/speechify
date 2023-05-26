@@ -37,38 +37,37 @@ class YourApp extends StatelessWidget {
           },
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) {
-            // Daftar halaman dengan animasi fade in
-            if (settings.name == '/') {
-              return const SplashScreen();
-            } else if (settings.name == '/home') {
-              return const HomeScreen();
-            } else if (settings.name == '/onboarding') {
-              return OnboardingPage(
-                pages: [
-                  OnboardingPageModel(
-                    title: 'Fast, Fluid and Secure',
-                    description: 'Be Your Self And Never Surender',
-                    image: 'assets/images/image0.png',
-                    bgColor: Colors.indigo,
-                  ),
-                  OnboardingPageModel(
-                    title: 'Connect with your friends.',
-                    description: 'Tombol Surrender ada di pengaturan.',
-                    image: 'assets/images/image1.png',
-                    bgColor: const Color(0xff1eb090),
-                  ),
-                  OnboardingPageModel(
-                    title: 'Bookmark your favourites',
-                    description:
-                    'Bookmark your favourite quotes to read at a leisure time.',
-                    image: 'assets/images/image2.png',
-                    bgColor: const Color(0xfffeae4f),
-                  ),
-                ],
-              );
-            } else {
-              // Halaman lainnya
-              return Container();
+            switch (settings.name) {
+              case '/':
+                return const SplashScreen();
+              case '/home':
+                return const HomeScreen();
+              case '/onboarding':
+                return OnboardingPage(
+                  pages: [
+                    OnboardingPageModel(
+                      title: 'Fast, Fluid and Secure',
+                      description: 'Be Your Self And Never Surender',
+                      image: 'assets/images/image0.png',
+                      bgColor: Colors.indigo,
+                    ),
+                    OnboardingPageModel(
+                      title: 'Connect with your friends.',
+                      description: 'Tombol Surrender ada di pengaturan.',
+                      image: 'assets/images/image1.png',
+                      bgColor: const Color(0xff1eb090),
+                    ),
+                    OnboardingPageModel(
+                      title: 'Bookmark your favourites',
+                      description:
+                      'Bookmark your favourite quotes to read at a leisure time.',
+                      image: 'assets/images/image2.png',
+                      bgColor: const Color(0xfffeae4f),
+                    ),
+                  ],
+                );
+              default:
+                return Container();
             }
           },
         );
@@ -76,6 +75,7 @@ class YourApp extends StatelessWidget {
     );
   }
 }
+
 MaterialColor createMaterialColor(Color color) {
   final List<double> strengths = <double>[.05];
   final Map<int, Color> swatch = <int, Color>{};
