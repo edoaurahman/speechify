@@ -50,6 +50,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.macbook }}
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
-          prerelease: true
           bodyFile: "RELEASE.md"
-          token: ${{ secrets.ACTIONS_TOKEN }}
+          token: ${{ secrets.macbook }}
