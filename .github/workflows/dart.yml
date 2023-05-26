@@ -4,9 +4,9 @@ name: Android Release
 on:
   # 2
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "dev" ]
+    tags:
+      - "beta3"
 
   # 3
   workflow_dispatch:
@@ -40,3 +40,12 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Start release build
         run: flutter build apk --release
+      - uses: actions/upload-artifact@v3
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Create Github Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+          bodyFile: "RELEASE.md"
