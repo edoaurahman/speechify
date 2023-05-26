@@ -48,7 +48,7 @@ class SplashScreenState extends State<SplashScreen>
 
   Future<void> _checkFirstTimeOpen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
+    // await prefs.clear();
     bool isFirstTimeOpen = prefs.getBool('firstTimeOpen') ?? true;
 
     Future.delayed(Duration.zero, () {
