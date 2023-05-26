@@ -47,6 +47,7 @@ jobs:
         uses: ncipollo/release-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.macbook }}
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           prerelease: true
