@@ -50,3 +50,4 @@ jobs:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           prerelease: true
           bodyFile: "RELEASE.md"
+          token: ${{ secrets.ACTIONS_TOKEN }}
