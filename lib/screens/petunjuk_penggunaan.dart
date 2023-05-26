@@ -3,12 +3,20 @@ import 'package:flutter/material.dart';
 class PetunjukPenggunaanScreen extends StatelessWidget {
   const PetunjukPenggunaanScreen({Key? key}) : super(key: key);
 
+  double calculateFontSize(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    // Sesuaikan dengan ukuran font yang diinginkan
+    double fontSize = screenWidth * 0.035;
+    return fontSize;
+  }
+
   @override
   Widget build(BuildContext context) {
+    double fontSize = calculateFontSize(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: const Color(0xfffffe90),
         title: const Text('Petunjuk Penggunaan'),
       ),
       body: Container(
@@ -18,13 +26,21 @@ class PetunjukPenggunaanScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: const Center(
+        child: Center(
           child: Padding(
-            padding: EdgeInsets.all(26),
+            padding: const EdgeInsets.all(40),
             child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel mauris a est ullamcorper varius. Sed pretium, mauris ac lobortis semper, tortor arcu consectetur est, id dictum turpis urna nec libero. Quisque posuere luctus dapibus. Mauris consectetur feugiat tincidunt. In id lorem a mi fringilla pulvinar. Nunc vestibulum, velit sed viverra aliquam, eros elit eleifend urna, vel iaculis tortor lorem sit amet orci. Etiam dictum lacinia tempor. Sed consectetur ullamcorper diam, ac cursus orci congue nec. Donec tempor tellus in magna iaculis lobortis. Fusce malesuada rutrum nunc, sed dictum enim vestibulum et. Nulla hendrerit erat est, nec fermentum nulla efficitur id. Aliquam erat volutpat. Vestibulum pellentesque ligula vitae mauris maximus, sed mattis tortor scelerisque. In tristique euismod mi, ut luctus nibh dapibus eu.',
+              '''
+Pastikan Anda telah memperbarui aplikasi ke versi terbaru sebelum menggunakan.
+Pilih menu pengaturan untuk mengatur preferensi penggunaan aplikasi.
+Untuk memulai, tekan tombol "Mulai" pada halaman utama.
+Ikuti langkah-langkah yang ditampilkan pada layar.
+Jika mengalami kesulitan, jangan ragu untuk menghubungi tim dukungan kami.
+Pastikan Anda membaca dan memahami syarat dan ketentuan penggunaan aplikasi.
+Berikan umpan balik Anda untuk membantu kami meningkatkan kualitas aplikasi.
+              ''',
               textAlign: TextAlign.justify,
-              style: TextStyle(fontFamily: 'Poppins',fontSize: 20),
+              style: TextStyle(fontFamily: 'Poppins',fontSize: fontSize),
             ),
           ),
         ),

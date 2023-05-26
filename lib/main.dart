@@ -21,7 +21,7 @@ class YourApp extends StatelessWidget {
     return MaterialApp(
       title: 'Speechify',
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: createMaterialColor(const Color(0xfffffe90)),
       ),
       initialRoute: '/',
       onGenerateRoute: (RouteSettings settings) {
@@ -75,4 +75,17 @@ class YourApp extends StatelessWidget {
       },
     );
   }
+}
+MaterialColor createMaterialColor(Color color) {
+  final List<double> strengths = <double>[.05];
+  final Map<int, Color> swatch = <int, Color>{};
+  final int primary = color.value;
+  for (int i = 1; i < 10; i++) {
+    strengths.add(0.1 * i);
+  }
+  for (final double strength in strengths) {
+    final int ds = (0.5 - strength).round() * 0x100;
+    swatch[(strength * 1000).round()] = Color(primary + ds);
+  }
+  return MaterialColor(color.value, swatch);
 }

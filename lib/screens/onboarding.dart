@@ -10,10 +10,10 @@ class OnboardingPageModel {
 
   OnboardingPageModel(
       {required this.title,
-        required this.description,
-        required this.image,
-        this.bgColor = Colors.blue,
-        this.textColor = Colors.white});
+      required this.description,
+      required this.image,
+      this.bgColor = Colors.blue,
+      this.textColor = Colors.white});
 }
 
 class OnboardingPage extends StatefulWidget {
@@ -28,6 +28,7 @@ class OnboardingPage extends StatefulWidget {
 class OnboardingPageState extends State<OnboardingPage> {
   // Store the currently visible page
   int _currentPage = 0;
+
   // Define a controller for the pageview
   final PageController _pageController = PageController(initialPage: 0);
 
@@ -74,12 +75,13 @@ class OnboardingPageState extends State<OnboardingPage> {
                                         .textTheme
                                         .titleLarge
                                         ?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: item.textColor,
-                                    )),
+                                          fontWeight: FontWeight.bold,
+                                          color: item.textColor,
+                                        )),
                               ),
                               Container(
-                                constraints: const BoxConstraints(maxWidth: 280),
+                                constraints:
+                                    const BoxConstraints(maxWidth: 280),
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 24.0, vertical: 8.0),
                                 child: Text(item.description,
@@ -88,8 +90,8 @@ class OnboardingPageState extends State<OnboardingPage> {
                                         .textTheme
                                         .bodyMedium
                                         ?.copyWith(
-                                      color: item.textColor,
-                                    )),
+                                          color: item.textColor,
+                                        )),
                               )
                             ]))
                       ],
@@ -103,16 +105,16 @@ class OnboardingPageState extends State<OnboardingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: widget.pages
                     .map((item) => AnimatedContainer(
-                  duration: const Duration(milliseconds: 250),
-                  width: _currentPage == widget.pages.indexOf(item)
-                      ? 20
-                      : 4,
-                  height: 4,
-                  margin: const EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0)),
-                ))
+                          duration: const Duration(milliseconds: 250),
+                          width: _currentPage == widget.pages.indexOf(item)
+                              ? 20
+                              : 4,
+                          height: 4,
+                          margin: const EdgeInsets.all(2.0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.0)),
+                        ))
                     .toList(),
               ),
 
@@ -127,9 +129,18 @@ class OnboardingPageState extends State<OnboardingPage> {
                           // Handle Skipping onboarding page
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                const HomeScreen()),
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      const HomeScreen(),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                            ),
                           );
                         },
                         child: const Text(
@@ -142,8 +153,11 @@ class OnboardingPageState extends State<OnboardingPage> {
                           Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => const HomeScreen(),
-                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      const HomeScreen(),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
                                 return FadeTransition(
                                   opacity: animation,
                                   child: child,

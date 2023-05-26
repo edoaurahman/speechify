@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:speechify/screens/petunjuk_penggunaan.dart';
+import 'package:speechify/screens/text_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -82,7 +83,8 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                     GestureDetector(
                       onTap: () {
                         // Aksi yang akan dijalankan saat card diklik
-                        navigateWithSlideAnimation(context, const PetunjukPenggunaanScreen());
+                        navigateWithSlideAnimation(
+                            context, const PetunjukPenggunaanScreen());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -108,7 +110,7 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                     GestureDetector(
                       onTap: () {
                         // Aksi yang akan dijalankan saat card diklik
-                        print('Card 2 clicked!');
+                        navigateWithSlideAnimation(context, const TextScreen());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
