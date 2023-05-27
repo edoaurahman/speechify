@@ -46,6 +46,6 @@ jobs:
       - name: Create Github Release
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.ACTIONS_TOKEN }}
+          token: ${{ secrets.auto_release }}
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           body: "# Test Build"
