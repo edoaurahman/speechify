@@ -15,7 +15,7 @@ jobs:
   # 5
   build:
     # 6
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     # 7
     steps:
@@ -48,5 +48,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
-          tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.auto_release }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: """
+Build Test v1.0.10
+          """
