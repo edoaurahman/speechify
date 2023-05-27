@@ -127,21 +127,7 @@ class OnboardingPageState extends State<OnboardingPage> {
                     TextButton(
                         onPressed: () {
                           // Handle Skipping onboarding page
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder:
-                                  (context, animation, secondaryAnimation) =>
-                                      const HomeScreen(),
-                              transitionsBuilder: (context, animation,
-                                  secondaryAnimation, child) {
-                                return FadeTransition(
-                                  opacity: animation,
-                                  child: child,
-                                );
-                              },
-                            ),
-                          );
+                          Navigator.pushReplacementNamed(context, '/home');
                         },
                         child: const Text(
                           "Skip",
@@ -150,21 +136,7 @@ class OnboardingPageState extends State<OnboardingPage> {
                     TextButton(
                       onPressed: () {
                         if (_currentPage == widget.pages.length - 1) {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder:
-                                  (context, animation, secondaryAnimation) =>
-                                      const HomeScreen(),
-                              transitionsBuilder: (context, animation,
-                                  secondaryAnimation, child) {
-                                return FadeTransition(
-                                  opacity: animation,
-                                  child: child,
-                                );
-                              },
-                            ),
-                          );
+                          Navigator.pushReplacementNamed(context, '/home');
                         } else {
                           _pageController.animateToPage(_currentPage + 1,
                               curve: Curves.easeInOutCubic,
