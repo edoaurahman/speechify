@@ -49,6 +49,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
-          body: """
-Build Test v1.0.10
-          """
+          body: "Build Test v1.0.10"
