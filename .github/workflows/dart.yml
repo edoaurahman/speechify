@@ -45,10 +45,7 @@ jobs:
           path: build/app/outputs/flutter-apk/app-release.apk
       - name: Create Github Release
         uses: ncipollo/release-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
-          ACCESS_TOKEN: ${{ secrets.macbook }}
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           bodyFile: "RELEASE.md"
-          token: ${{ secrets.macbook }}
