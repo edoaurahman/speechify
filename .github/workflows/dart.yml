@@ -15,7 +15,7 @@ jobs:
   # 5
   build:
     # 6
-    runs-on: ubuntu-latest-16-cores
+    runs-on: ubuntu-latest
     # 7
     steps:
       # 8
@@ -33,7 +33,7 @@ jobs:
           channel: 'stable'
       # 12
       - name: Flutter Clean
-        run: flutter pub get
+        run: flutter clean
       - name: Get dependencies
         run: flutter pub get
 

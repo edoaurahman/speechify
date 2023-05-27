@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:speechify/screens/home_screen.dart';
 
 class OnboardingPageModel {
   final String title;
