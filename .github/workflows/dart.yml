@@ -43,9 +43,10 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-      - name: Create Github Release
+
+      - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.auto_release }}
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
-          body: "# Test Build"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.auto_release }}
