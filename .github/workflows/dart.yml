@@ -6,7 +6,7 @@ on:
   push:
     branches: [ "dev" ]
     tags:
-      - "v1.0.5"
+      - "*"
 
   # 3
   workflow_dispatch:
