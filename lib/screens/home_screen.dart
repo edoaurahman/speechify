@@ -1,6 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:speechify/screens/petunjuk_penggunaan.dart';
-import 'package:speechify/screens/text_screen.dart';
+import 'package:speechify/screens/quiz_screen.dart';
+import 'package:speechify/screens/tentang_kami.dart';
+import 'package:speechify/screens/deskripsi_alat_ucap/deskripsi_alat_ucap.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -48,18 +50,27 @@ class HomeScreen extends StatelessWidget {
               right: 16,
               top: screenHeight / 5,
             ),
-            child: const Text(
-              '''BAHAN AJAR
-KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 25,
-                fontFamily: 'PermanentMarker',
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-                decoration:
-                    TextDecoration.none, // Menghapus dekorasi garis bawah
-              ),
+            child: Column(
+              children: [
+                Flexible(
+                  child: Image.asset(
+                    'assets/images/logo-ikip-bjn.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const AutoSizeText(
+                  'BAHAN AJAR KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI',
+                  maxLines: 3,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'PermanentMarker',
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                    decoration:
+                        TextDecoration.none, // Menghapus dekorasi garis bawah
+                  ),
+                ),
+              ],
             ), // Sesuaikan dengan tinggi teks
           ),
           // Bagian bawah dengan daftar kartu yang dapat di-scroll
@@ -84,7 +95,7 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                       onTap: () {
                         // Aksi yang akan dijalankan saat card diklik
                         navigateWithSlideAnimation(
-                            context, const PetunjukPenggunaanScreen());
+                            context, const TentangKami());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -94,11 +105,11 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
-                              'assets/images/card/petunjuk.png',
+                              'assets/images/card/petunjuk.webp',
                             ),
                             const SizedBox(height: 10),
                             const Text(
-                              'Petunjuk Penggunaan',
+                              'Tentang Kami',
                               style: TextStyle(
                                   fontSize: cardFont,
                                   fontWeight: FontWeight.bold),
@@ -110,7 +121,8 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                     GestureDetector(
                       onTap: () {
                         // Aksi yang akan dijalankan saat card diklik
-                        navigateWithSlideAnimation(context, const TextScreen());
+                        navigateWithSlideAnimation(
+                            context, const DeskripsiAlatUcap());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -120,11 +132,38 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
-                              'assets/images/card/deskripsi.png',
+                              'assets/images/card/deskripsi.webp',
                             ),
                             const SizedBox(height: 10),
                             const Text(
-                              'Deskripsi Bahan Ajar',
+                              'Deskripsi Alat Ucap',
+                              style: TextStyle(
+                                  fontSize: cardFont,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => QuizScreen()));
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/card/quiz.webp',
+                            ),
+                            const Text(
+                              'QUIZ',
                               style: TextStyle(
                                   fontSize: cardFont,
                                   fontWeight: FontWeight.bold),
@@ -136,7 +175,6 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                     GestureDetector(
                       onTap: () {
                         // Aksi yang akan dijalankan saat card diklik
-                        print('Card 1 clicked!');
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -146,193 +184,11 @@ KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI''',
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
-                              'assets/images/card/petunjuk.png',
+                              'assets/images/card/daftar_pustaka.webp',
                             ),
-                            const SizedBox(height: 10),
+                            const SizedBox(height: 30),
                             const Text(
-                              'Petunjuk Penggunaan',
-                              style: TextStyle(
-                                  fontSize: cardFont,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
-                        print('Card 2 clicked!');
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.png',
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Deskripsi Bahan Ajar',
-                              style: TextStyle(
-                                  fontSize: cardFont,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
-                        print('Card 1 clicked!');
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.png',
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Petunjuk Penggunaan',
-                              style: TextStyle(
-                                  fontSize: cardFont,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
-                        print('Card 2 clicked!');
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.png',
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Deskripsi Bahan Ajar',
-                              style: TextStyle(
-                                  fontSize: cardFont,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
-                        print('Card 1 clicked!');
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.png',
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Petunjuk Penggunaan',
-                              style: TextStyle(
-                                  fontSize: cardFont,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
-                        print('Card 2 clicked!');
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.png',
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Deskripsi Bahan Ajar',
-                              style: TextStyle(
-                                  fontSize: cardFont,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
-                        print('Card 1 clicked!');
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.png',
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Petunjuk Penggunaan',
-                              style: TextStyle(
-                                  fontSize: cardFont,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
-                        print('Card 2 clicked!');
-                      },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.png',
-                            ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Deskripsi Bahan Ajar',
+                              'Daftar Pustaka',
                               style: TextStyle(
                                   fontSize: cardFont,
                                   fontWeight: FontWeight.bold),

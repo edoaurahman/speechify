@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PetunjukPenggunaanScreen extends StatelessWidget {
-  const PetunjukPenggunaanScreen({Key? key}) : super(key: key);
+class TentangKami extends StatelessWidget {
+  const TentangKami({Key? key}) : super(key: key);
 
   double calculateFontSize(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -17,7 +17,7 @@ class PetunjukPenggunaanScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Petunjuk Penggunaan'),
+        title: const Text('Tentang Kami'),
       ),
       body: Container(
         decoration: const BoxDecoration(

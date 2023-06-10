@@ -17,7 +17,6 @@ jobs:
   build:
     # 6
     runs-on: ubuntu-latest
-
     # 7
     steps:
       # 8
@@ -27,13 +26,22 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: "19.x"
-      # 10   
+      # 10
       - uses: subosito/flutter-action@v2
         with:
           # 11
           flutter-version: "3.7.5"
           channel: 'stable'
       # 12
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+      - name: List keys
+        run: gpg -K
+      - name: Flutter Clean
+        run: flutter clean
       - name: Get dependencies
         run: flutter pub get
 
@@ -44,10 +52,11 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-      - name: Create Github Release
+
+      - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bodyFile: "release.md"
           prerelease: true
-          bodyFile: "RELEASE.md"
-          token: ${{ secrets.ACTIONS_TOKEN }}
