@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.edoaurahman.speechify">
    <application
-        android:label="Speechify"
+        android:label="ALUMA"
         android:name="${applicationName}"
         android:icon="@mipmap/logo">
         <activity

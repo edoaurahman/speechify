@@ -63,11 +63,16 @@ class SplashScreenState extends State<SplashScreen>
               child: child,
             );
           },
-          child: Image.asset(
-            'assets/images/logo.png',
-            width: 200,
+          child:
+          const Image(
+            image: ResizeImage(
+              AssetImage(
+                  'assets/images/logo.webp'),
+              height: 400,
+            ),
             height: 200,
-          ),
+            fit: BoxFit.cover,
+          )
         ),
       ),
     );

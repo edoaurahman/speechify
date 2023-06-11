@@ -25,6 +25,20 @@ class DeskripsiAlatUcap extends StatelessWidget {
     );
   }
 
+  Widget createAutoSizeText(String text,
+      {double minFontSize = 0,
+      double maxFontSize = 8,
+      int maxLines = 1,
+      TextStyle style = const TextStyle(fontWeight: FontWeight.bold)}) {
+    return AutoSizeText(
+      text,
+      minFontSize: minFontSize,
+      maxFontSize: maxFontSize,
+      maxLines: maxLines,
+      style: style,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     const cardFont = 8.0;
@@ -33,7 +47,10 @@ class DeskripsiAlatUcap extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/background2.jpg'),
+          image: ResizeImage(
+            AssetImage('assets/images/background2.webp'),
+            height: 1080,
+          ),
           fit: BoxFit.cover,
         ),
       ),
@@ -68,29 +85,22 @@ class DeskripsiAlatUcap extends StatelessWidget {
               child: GridView.count(
                 shrinkWrap: true,
                 crossAxisCount: 4,
-                // Jumlah kolom dalam grid
                 childAspectRatio: 1.0,
-                // Menjaga rasio aspek persegi
                 padding: const EdgeInsets.all(35.0),
-                // Padding pada grid
                 mainAxisSpacing: 10.0,
-                // Spasi antar item di sepanjang sumbu utama (vertikal)
                 crossAxisSpacing: 10.0,
-                // Spasi antar item di sepanjang sumbu lintang (horizontal)
                 children: [
                   GestureDetector(
                     onTap: () {
                       // Aksi yang akan dijalankan saat card diklik
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Pengertian(
+                      navigateWithSlideAnimation(
+                          context,
+                          const Pengertian(
                             pathText: 'assets/text/lungs.txt',
-                            image: 'assets/images/deskripsi_alat_ucap/lungs.webp',
-                            title: 'Lungs',
-                          ),
-                        ),
-                      );
+                            image:
+                                'assets/images/deskripsi_alat_ucap/lungs.webp',
+                            title: 'Paru-paru (Lungs)',
+                          ));
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -99,34 +109,32 @@ class DeskripsiAlatUcap extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Flexible(
-                            child: Image.asset(
-                              'assets/images/deskripsi_alat_ucap/lungs.webp',
+                          const Flexible(
+                            child: Image(
+                              image: ResizeImage(
+                                AssetImage(
+                                    'assets/images/deskripsi_alat_ucap/lungs.webp'),
+                                height: 186,
+                              ),
                               fit: BoxFit.cover,
                             ),
                           ),
-                          const Text(
-                            'Lungs',
-                            style: TextStyle(
-                                fontSize: cardFont,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          createAutoSizeText('Paru-paru'),
+                          Container(height: 10)
                         ],
                       ),
                     ),
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Pengertian(
+                      navigateWithSlideAnimation(
+                          context,
+                          const Pengertian(
                             pathText: 'assets/text/laring.txt',
-                            image: 'assets/images/deskripsi_alat_ucap/laring.webp',
-                            title: 'Laring',
-                          ),
-                        ),
-                      );
+                            image:
+                                'assets/images/deskripsi_alat_ucap/laring.webp',
+                            title: 'Pangkal Tenggorokan (Laring)',
+                          ));
                     },
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -135,18 +143,124 @@ class DeskripsiAlatUcap extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Flexible(
-                            child: Image.asset(
-                              'assets/images/deskripsi_alat_ucap/laring.webp',
+                          const Flexible(
+                            child: Image(
+                              image: ResizeImage(
+                                AssetImage(
+                                    'assets/images/deskripsi_alat_ucap/laring.webp'),
+                                width: 186,
+                                height: 186,
+                              ),
                               fit: BoxFit.cover,
                             ),
                           ),
-                          const Text(
-                            'Laring',
-                            style: TextStyle(
-                                fontSize: cardFont,
-                                fontWeight: FontWeight.bold),
+                          createAutoSizeText('Pangkal Tenggorokan'),
+                          Container(height: 10)
+                        ],
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      navigateWithSlideAnimation(
+                          context,
+                          const Pengertian(
+                            pathText: 'assets/text/faring.txt',
+                            image:
+                                'assets/images/deskripsi_alat_ucap/faring.webp',
+                            title: 'Rongga kerongkongan (Faring)',
+                          ));
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Flexible(
+                            child: Image(
+                              image: ResizeImage(
+                                AssetImage(
+                                    'assets/images/deskripsi_alat_ucap/faring.webp'),
+                                width: 186,
+                                height: 186,
+                              ),
+                              fit: BoxFit.cover,
+                            ),
                           ),
+                          createAutoSizeText('Rongga Kerongkongan'),
+                          Container(height: 10)
+                        ],
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      navigateWithSlideAnimation(
+                          context,
+                          const Pengertian(
+                            pathText: 'assets/text/venum.txt',
+                            image:
+                            'assets/images/deskripsi_alat_ucap/venum.webp',
+                            title: 'Langit-langit Lunak (Venum)',
+                          ));
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Flexible(
+                            child: Image(
+                              image: ResizeImage(
+                                AssetImage(
+                                    'assets/images/deskripsi_alat_ucap/venum.webp'),
+                                width: 186,
+                                height: 186,
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          createAutoSizeText('Langit-langit lunak'),
+                          Container(height: 10)
+                        ],
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      navigateWithSlideAnimation(
+                          context,
+                          const Pengertian(
+                            pathText: 'assets/text/palatum.txt',
+                            image:
+                            'assets/images/deskripsi_alat_ucap/venum.webp',
+                            title: 'Langit-langit keras (Palatum)',
+                          ));
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Flexible(
+                            child: Image(
+                              image: ResizeImage(
+                                AssetImage(
+                                    'assets/images/deskripsi_alat_ucap/venum.webp'),
+                                width: 186,
+                                height: 186,
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          createAutoSizeText('Langit-langit keras'),
+                          Container(height: 10)
                         ],
                       ),
                     ),

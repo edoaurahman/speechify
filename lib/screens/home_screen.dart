@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/background.jpg'),
+          image: AssetImage('assets/images/background.webp'),
           fit: BoxFit.cover,
         ),
       ),
@@ -51,14 +51,19 @@ class HomeScreen extends StatelessWidget {
               top: screenHeight / 5,
             ),
             child: Column(
-              children: [
+              children: const [
                 Flexible(
-                  child: Image.asset(
-                    'assets/images/logo-ikip-bjn.png',
+                  child: Image(
+                    image: ResizeImage(
+                      AssetImage('assets/images/logo-ikip-bjn.webp'),
+                      width: 400,
+                      height: 400,
+                    ),
                     fit: BoxFit.cover,
                   ),
                 ),
-                const AutoSizeText(
+
+                AutoSizeText(
                   'BAHAN AJAR KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI',
                   maxLines: 3,
                   textAlign: TextAlign.center,
@@ -103,13 +108,19 @@ class HomeScreen extends StatelessWidget {
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/petunjuk.webp',
+                          children: const [
+                            Flexible(
+                              child: Image(
+                                image: ResizeImage(
+                                  AssetImage('assets/images/card/petunjuk.webp'),
+                                  width: 300,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            const SizedBox(height: 10),
-                            const Text(
-                              'Tentang Kami',
+                            SizedBox(height: 10),
+                            Text(
+                              'ALUMA',
                               style: TextStyle(
                                   fontSize: cardFont,
                                   fontWeight: FontWeight.bold),
@@ -130,12 +141,19 @@ class HomeScreen extends StatelessWidget {
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/deskripsi.webp',
+                          children: const [
+                            Flexible(
+                              child: Image(
+                                image: ResizeImage(
+                                  AssetImage('assets/images/card/deskripsi.webp'),
+                                  width: 300,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            const SizedBox(height: 10),
-                            const Text(
+
+                            SizedBox(height: 10),
+                            Text(
                               'Deskripsi Alat Ucap',
                               style: TextStyle(
                                   fontSize: cardFont,
@@ -147,10 +165,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => QuizScreen()));
+                        navigateWithSlideAnimation(context, const QuizScreen());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -158,11 +173,17 @@ class HomeScreen extends StatelessWidget {
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/quiz.webp',
+                          children: const [
+                            Flexible(
+                              child: Image(
+                                image: ResizeImage(
+                                  AssetImage('assets/images/card/quiz.webp'),
+                                  width: 300,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            const Text(
+                            Text(
                               'QUIZ',
                               style: TextStyle(
                                   fontSize: cardFont,
@@ -182,12 +203,18 @@ class HomeScreen extends StatelessWidget {
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/images/card/daftar_pustaka.webp',
+                          children: const [
+                            Flexible(
+                              child: Image(
+                                image: ResizeImage(
+                                  AssetImage('assets/images/card/daftar_pustaka.webp'),
+                                  width: 300,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                            const SizedBox(height: 30),
-                            const Text(
+                            SizedBox(height: 30),
+                            Text(
                               'Daftar Pustaka',
                               style: TextStyle(
                                   fontSize: cardFont,
