@@ -41,15 +41,14 @@ class DeskripsiAlatUcap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const cardFont = 8.0;
     const padding = 60.0;
     final screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
           image: ResizeImage(
-            AssetImage('assets/images/background2.webp'),
-            height: 1080,
+            const AssetImage('assets/images/background2.webp'),
+            height: MediaQuery.of(context).size.height.toInt() + 100,
           ),
           fit: BoxFit.cover,
         ),
