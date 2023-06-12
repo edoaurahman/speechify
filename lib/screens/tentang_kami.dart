@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PetunjukPenggunaanScreen extends StatelessWidget {
-  const PetunjukPenggunaanScreen({Key? key}) : super(key: key);
+class TentangKami extends StatelessWidget {
+  const TentangKami({Key? key}) : super(key: key);
 
   double calculateFontSize(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -13,16 +13,18 @@ class PetunjukPenggunaanScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double fontSize = calculateFontSize(context);
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Petunjuk Penggunaan'),
+        title: const Text('Tentang Kami'),
       ),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background1.png'),
+            image: ResizeImage(
+              AssetImage('assets/images/background1.webp'),
+              height: 1500,
+            ),
             fit: BoxFit.cover,
           ),
         ),
@@ -31,13 +33,19 @@ class PetunjukPenggunaanScreen extends StatelessWidget {
             padding: const EdgeInsets.all(40),
             child: Text(
               '''
-Pastikan Anda telah memperbarui aplikasi ke versi terbaru sebelum menggunakan.
-Pilih menu pengaturan untuk mengatur preferensi penggunaan aplikasi.
-Untuk memulai, tekan tombol "Mulai" pada halaman utama.
-Ikuti langkah-langkah yang ditampilkan pada layar.
-Jika mengalami kesulitan, jangan ragu untuk menghubungi tim dukungan kami.
-Pastikan Anda membaca dan memahami syarat dan ketentuan penggunaan aplikasi.
-Berikan umpan balik Anda untuk membantu kami meningkatkan kualitas aplikasi.
+ALUMA ( Alat Ucap Manusia)
+
+Anggota:
+1. Fitri Miftahul Huda (22110011) 
+2. Farra Gita Nandini (22110009) 
+3. Redita Cahyani (22110041)
+4. Vivi Putri Octavia (22110067)
+5. Lovita Resa Rosita J. (22110017)
+6.shoffiudin (22110042)
+7. iksen saputra (22110052)
+
+Pembimbing : 
+Dr. Masnuatul Hawa M. Pd.
               ''',
               textAlign: TextAlign.justify,
               style: TextStyle(fontFamily: 'Poppins',fontSize: fontSize),

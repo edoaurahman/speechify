@@ -6,6 +6,7 @@ on:
   push:
     tags:
       - "*"
+
   # 3
   workflow_dispatch:
 
@@ -24,7 +25,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: "19.x"
-      # 10   
+      # 10
       - uses: subosito/flutter-action@v2
         with:
           # 11
@@ -56,5 +57,5 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
-          bodyFile: "release.md"
+          bodyFile: "RELEASE.md"
           prerelease: true
