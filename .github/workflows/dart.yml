@@ -5,8 +5,7 @@ on:
   # 2
   push:
     tags:
-      - "*"
-
+      - "v1.0.7"
   # 3
   workflow_dispatch:
 
@@ -15,7 +14,7 @@ jobs:
   # 5
   build:
     # 6
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest       
     # 7
     steps:
       # 8
@@ -29,7 +28,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           # 11
-          flutter-version: "3.7.5"
+          flutter-version: "3.10.4"
           channel: 'stable'
       # 12
       - name: Import GPG key
@@ -58,4 +57,3 @@ jobs:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
           bodyFile: "RELEASE.md"
-          prerelease: true

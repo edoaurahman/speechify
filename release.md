@@ -1,8 +1,8 @@
 # ALUMA
-## Beta Release v1.0.6
+## Release v1.0.7
 
 <ul>
-<li>Tentang Kami "ALUMA"</li>
-<li>Add Quiz</li>
-<li>Deskripsi Alat Ucap</li>
+<li>Remove text in home</li>
+<li>Add all "deskripsi alat ucap"</li>
+<li>Add Sound click in Quiz</li>
 </ul>
