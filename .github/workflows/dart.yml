@@ -5,7 +5,7 @@ on:
   # 2
   push:
     tags:
-      - "v1.0.7"
+      - "*"
   # 3
   workflow_dispatch:
 
@@ -56,4 +56,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
-          bodyFile: "release.md"
+          bodyFile: "notes.md"
