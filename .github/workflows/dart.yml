@@ -56,4 +56,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/app-release.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
-          bodyFile: "RELEASE.md"
+          bodyFile: "release.md"
