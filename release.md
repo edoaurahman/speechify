@@ -1,3 +1,8 @@
-### build test v1.0.4
+# ALUMA
+## Beta Release v1.0.6
 
-`fix` test
+<ul>
+<li>Tentang Kami "ALUMA"</li>
+<li>Add Quiz</li>
+<li>Deskripsi Alat Ucap</li>
+</ul>

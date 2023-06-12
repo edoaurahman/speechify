@@ -19,11 +19,11 @@ class TentangKami extends StatelessWidget {
         title: const Text('Tentang Kami'),
       ),
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: ResizeImage(
-              AssetImage('assets/images/background1.webp'),
-              height: 1500,
+              const AssetImage('assets/images/background1.webp'),
+              height: MediaQuery.of(context).size.height.toInt() + 200,
             ),
             fit: BoxFit.cover,
           ),

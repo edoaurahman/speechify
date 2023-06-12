@@ -1,5 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:speechify/screens/daftar_pustaka.dart';
 import 'package:speechify/screens/quiz_screen.dart';
 import 'package:speechify/screens/tentang_kami.dart';
 import 'package:speechify/screens/deskripsi_alat_ucap/deskripsi_alat_ucap.dart';
@@ -50,29 +50,16 @@ class HomeScreen extends StatelessWidget {
               right: 16,
               top: screenHeight / 5,
             ),
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 Flexible(
                   child: Image(
                     image: ResizeImage(
                       AssetImage('assets/images/logo-ikip-bjn.webp'),
-                      width: 400,
                       height: 400,
                     ),
+                    height: 300,
                     fit: BoxFit.cover,
-                  ),
-                ),
-
-                AutoSizeText(
-                  'BAHAN AJAR KETERAMPILAN MENULIS AKADEMIK BERORIENTASI BERPIKIR TINGGI',
-                  maxLines: 3,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'PermanentMarker',
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white,
-                    decoration:
-                        TextDecoration.none, // Menghapus dekorasi garis bawah
                   ),
                 ),
               ],
@@ -106,13 +93,14 @@ class HomeScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Flexible(
                               child: Image(
                                 image: ResizeImage(
-                                  AssetImage('assets/images/card/petunjuk.webp'),
+                                  AssetImage(
+                                      'assets/images/card/petunjuk.webp'),
                                   width: 300,
                                 ),
                                 fit: BoxFit.cover,
@@ -139,19 +127,19 @@ class HomeScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Flexible(
                               child: Image(
                                 image: ResizeImage(
-                                  AssetImage('assets/images/card/deskripsi.webp'),
+                                  AssetImage(
+                                      'assets/images/card/deskripsi.webp'),
                                   width: 300,
                                 ),
                                 fit: BoxFit.cover,
                               ),
                             ),
-
                             SizedBox(height: 10),
                             Text(
                               'Deskripsi Alat Ucap',
@@ -171,9 +159,9 @@ class HomeScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Flexible(
                               child: Image(
                                 image: ResizeImage(
@@ -195,19 +183,20 @@ class HomeScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Aksi yang akan dijalankan saat card diklik
+                        navigateWithSlideAnimation(context, LibraryScreen());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Flexible(
                               child: Image(
                                 image: ResizeImage(
-                                  AssetImage('assets/images/card/daftar_pustaka.webp'),
+                                  AssetImage(
+                                      'assets/images/card/daftar_pustaka.webp'),
                                   width: 300,
                                 ),
                                 fit: BoxFit.cover,

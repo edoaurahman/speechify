@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -8,8 +9,25 @@ class QuizScreen extends StatefulWidget {
 }
 
 class QuizScreenState extends State<QuizScreen> {
+  AudioPlayer audioPlayer = AudioPlayer();
+
   int currentQuestionIndex = 0;
   int score = 0;
+
+  Future<void> playSound() async {
+    if (audioPlayer.state == PlayerState.playing) {
+      await audioPlayer.stop();
+    }
+    await audioPlayer.play(AssetSource('sound/click.wav'));
+  }
+
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
 
   List<Question> questions = [
     Question(
@@ -232,6 +250,7 @@ class QuizScreenState extends State<QuizScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: ElevatedButton(
                         onPressed: () {
+                          playSound();
                           answerQuestion(questions[currentQuestionIndex]
                               .choices
                               .indexOf(choice));
