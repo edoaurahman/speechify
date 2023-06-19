@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:speechify/screens/daftar_pustaka.dart';
+import 'package:speechify/screens/petunjuk_penggunaan.dart';
 import 'package:speechify/screens/quiz_screen.dart';
 import 'package:speechify/screens/tentang_kami.dart';
 import 'package:speechify/screens/deskripsi_alat_ucap/deskripsi_alat_ucap.dart';
@@ -87,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                       onTap: () {
                         // Aksi yang akan dijalankan saat card diklik
                         navigateWithSlideAnimation(
-                            context, const TentangKami());
+                            context, const PetunjukPenggunaan());
                       },
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -101,6 +102,40 @@ class HomeScreen extends StatelessWidget {
                                 image: ResizeImage(
                                   AssetImage(
                                       'assets/images/card/petunjuk.webp'),
+                                  width: 300,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              'Petunjuk Penggunaan',
+                              style: TextStyle(
+                                  fontSize: cardFont,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        // Aksi yang akan dijalankan saat card diklik
+                        navigateWithSlideAnimation(
+                            context, const TentangKami());
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Image(
+                                image: ResizeImage(
+                                  AssetImage(
+                                      'assets/images/card/tentang_kami.webp'),
                                   width: 300,
                                 ),
                                 fit: BoxFit.cover,

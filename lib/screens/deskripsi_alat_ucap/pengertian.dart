@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_html/flutter_html.dart';
 
 class Pengertian extends StatefulWidget {
   final String image, title, pathText;
@@ -32,6 +33,8 @@ class PengertianState extends State<Pengertian> {
 
   @override
   Widget build(BuildContext context) {
+    Widget html = Html(data: text,shrinkWrap: true,);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -83,25 +86,7 @@ class PengertianState extends State<Pengertian> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              // Display the card's title using a font size of 24 and a dark grey color
-                              Text(
-                                widget.title,
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.grey[800],
-                                ),
-                              ),
-                              // Add a space between the title and the text
-                              Container(height: 10),
-                              // Display the card's text using a font size of 15 and a light grey color
-                              Text(
-                                text,
-                                textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.grey[700],
-                                ),
-                              ),
+                              html
                             ],
                           ),
                         ),

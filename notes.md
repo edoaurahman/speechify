@@ -1,8 +1,7 @@
 # ALUMA
-## Release v1.0.7
+## Release v1.5.1
 
 <ul>
-<li>Remove text in home</li>
-<li>Add all "deskripsi alat ucap"</li>
-<li>Add Sound click in Quiz</li>
+<li>Update deskripsi alat ucap</li>
+<li>Add back navigation to Deskripsi alat ucap</li>
 </ul>

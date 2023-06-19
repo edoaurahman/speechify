@@ -24,6 +24,26 @@ class LibraryScreen extends StatelessWidget {
       'publisher': 'Ub Press',
       'location': 'Malang',
     },
+    {
+      'author': 'WikiPedia',
+      'title': 'Lelangit',
+      'doi': 'https://id.m.wikipedia.org/wiki/Lelangit ',
+    },
+    {
+      'author': 'Silmi Nurul Utami',
+      'title': 'Struktur Laring Manusia Beserta Fungsinya',
+      'doi': 'https://www.kompas.com/skola/read/2022/01/06/135446969/struktur-laring-manusia-beserta-fungsinya?amp=1&page=2',
+    },
+    {
+      'author': 'dr. Rizal Fadli',
+      'title': 'Ketahui Fungsi Rongga Mulut dalam Sistem Pencernaan Manusia',
+      'doi': 'https://www.halodoc.com/artikel/ketahui-fungsi-rongga-mulut-dalam-sistem-pencernaan-manusia',
+    },
+    {
+      'author': 'Μουχάμαντ Ιρφάν',
+      'title': 'Alat ucap dan Fungsinya',
+      'doi': 'https://muhmdirpan.wordpress.com/2018/03/02/alat-ucap-dan-fungsinya/',
+    },
   ];
 
   LibraryScreen({super.key});
@@ -32,6 +52,7 @@ class LibraryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('Daftar Pustaka'),
       ),
       body: ListView.builder(
