@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
@@ -14,7 +13,6 @@ class PetunjukPenggunaan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double fontSize = calculateFontSize(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
