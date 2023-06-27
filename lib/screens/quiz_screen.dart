@@ -164,6 +164,46 @@ class QuizScreenState extends State<QuizScreen> {
       ],
       correctChoiceIndex: 2,
     ),
+    Question(
+      text:
+          'Saluran yang terletak pada belakanh lubang hidung dan memanjang hingga kelangit -langit lunak adalah',
+      choices: [
+        'A. Paru-paru',
+        'B. Gigi',
+        'C. Rongga hidung'
+      ],
+      correctChoiceIndex: 2,
+    ),
+    Question(
+      text:
+          'Udara yang datang dari luar paru-paru disebut',
+      choices: [
+        'A. Egresif',
+        'B. Ingresif',
+        'C. Gusi'
+      ],
+      correctChoiceIndex: 1,
+    ),
+    Question(
+      text:
+          'Apakah yang dimaksud dengan rongga mulut?',
+      choices: [
+        'A. Sumber arus udara',
+        'B. Bukaan berbentuk oval tempat udara, makanan, dan cairan masuk ke dalam tubuh manusia',
+        'C. Saluran udara yang terletak pada belakang lubang hidung dan memanjang hingga kelangit -langit lunak'
+      ],
+      correctChoiceIndex: 1,
+    ),
+    Question(
+      text:
+          'Berikut yang bukan termasuk rongga mulut adalah…',
+      choices: [
+        'A. Lidah',
+        'B. Paru-paru',
+        'C. Bibir'
+      ],
+      correctChoiceIndex: 1,
+    ),
     // Tambahkan pertanyaan lainnya sesuai kebutuhan
   ];
 

@@ -44,6 +44,10 @@ class LibraryScreen extends StatelessWidget {
       'title': 'Alat ucap dan Fungsinya',
       'doi': 'https://muhmdirpan.wordpress.com/2018/03/02/alat-ucap-dan-fungsinya/',
     },
+    {
+      'author': 'Nasution, A. S. A .(2022).',
+      'title': ' Fonetik dan Fonologi Alquran. ',
+    },
   ];
 
   LibraryScreen({super.key});
