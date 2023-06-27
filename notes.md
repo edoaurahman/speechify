@@ -1,7 +1,7 @@
 # ALUMA
-## Release v1.1.7
+## Release v1.1.8
 
 <ul>
 <li>Update deskripsi alat ucap</li>
-<li>Add back navigation to Deskripsi alat ucap</li>
+<li>Add new quiz</li>
 </ul>
